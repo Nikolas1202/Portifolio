@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Portfólio — Nikolas Morais</title>
+    <style>
+        :root{ --bg:#071029; --card:#0b1220; --muted:#9fb0c7; --accent:#06b6d4; --text:#e6eef6; --highlight:#7c3aed }
+        [data-theme="light"]{ --bg:#f7fafc; --card:#ffffff; --muted:#4b5563; --accent:#0ea5a4; --text:#0b1220; --highlight:#9333ea }
+        *{box-sizing:border-box}
+        body{margin:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial;background:linear-gradient(180deg,var(--bg), #021226 60%);color:var(--text);padding:28px}
+        .wrap{max-width:1100px;margin:0 auto}
+        .top{display:flex;gap:18px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+        .logo{display:flex;gap:14px;align-items:center}
+        .avatar{width:64px;height:64px;border-radius:16px;background:linear-gradient(135deg,var(--accent),var(--highlight));display:flex;align-items:center;justify-content:center;font-weight:800;color:var(--card)}
+        h1{margin:0;font-size:28px}
+        .subtitle{color:var(--muted);margin-top:6px}
+        .controls{display:flex;gap:8px}
+        button{background:transparent;border:1px solid rgba(255,255,255,0.06);color:var(--text);padding:8px 12px;border-radius:9px;cursor:pointer}
+        main{display:grid;grid-template-columns:2fr 380px;gap:28px;margin-top:22px}
+
+        /* HERO */
+        .hero{padding:26px;border-radius:16px;background:var(--card);border:1px solid rgba(255,255,255,0.04)}
+        .hero p{color:var(--muted);margin-top:12px}
+        .cta{margin-top:16px;display:flex;gap:10px}
+        .btn-primary{background:linear-gradient(90deg,var(--accent),var(--highlight));border:none;color:white;padding:10px 14px;border-radius:10px;cursor:pointer}
+
+        /* Projects */
+        .projects{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:14px}
+        .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:14px;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+        .proj-title{font-weight:700;color:var(--accent)}
+        .tags{margin-top:10px;display:flex;gap:8px;flex-wrap:wrap}
+        .tag{background:rgba(255,255,255,0.03);padding:6px 8px;border-radius:8px;font-weight:600;font-size:13px}
+
+        /* Sidebar */
+        aside{position:relative}
+        .panel{background:var(--card);padding:18px;border-radius:12px;border:1px solid rgba(255,255,255,0.04)}
+        .skills{display:flex;flex-direction:column;gap:8px}
+        .skillbar{display:flex;align-items:center;gap:8px}
+        .bar{height:10px;border-radius:8px;background:rgba(255,255,255,0.06);flex:1;overflow:hidden}
+        .bar > i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--highlight));}
+
+        /* testimonials */
+        .testi{margin-top:14px;display:flex;flex-direction:column;gap:10px}
+
+        /* contact */
+        .contact form{display:flex;flex-direction:column;gap:8px}
+        input,textarea{padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.06);background:transparent;color:var(--text)}
+        textarea{min-height:120px}
+
+        footer{margin-top:22px;color:var(--muted);font-size:13px}
+
+        @media (max-width:980px){main{grid-template-columns:1fr} .projects{grid-template-columns:1fr}}
+        @media print{button,.controls{display:none}} 
+    </style>
+</head>
+<body data-theme="dark">
+    <div class="wrap">
+        <div class="top">
+            <div class="logo">
+                <div class="avatar">NM</div>
+                <div>
+                    <h1>Nikolas Morais</h1>
+                    <div class="subtitle">Desenvolvedor em formação • Estudante de ADS • Portfólio</div>
+                </div>
+            </div>
+            <div class="controls">
+                <button id="toggleTheme">Alternar tema</button>
+                <button id="downloadResume">Baixar currículo</button>
+            </div>
+        </div>
+
+        <main>
+            <section>
+                <div class="hero">
+                    <h2>Olá — eu sou o Nikolas</h2>
+                    <p>Estudante de Análise e Desenvolvimento de Sistemas no UNASP, apaixonado por criar soluções digitais simples e eficientes. Gosto de transformar ideias em projetos funcionais com front‑end limpo e back‑end estável.</p>
+                    <div class="cta">
+                        <button class="btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contrate-me (estágio)</button>
+                        <a href="#projects" style="text-decoration:none"><button>Ver projetos</button></a>
+                    </div>
+
+                    <h3 style="margin-top:18px">Destaques</h3>
+                    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:8px">
+                        <div class="card" style="display:flex;flex-direction:column;gap:8px;min-width:150px;flex:1"> 
+                            <div style="font-weight:700">Projetos Pessoais</div>
+                            <div style="color:var(--muted)">Aplicações web em React e JavaScript</div>
+                        </div>
+                        <div class="card" style="display:flex;flex-direction:column;gap:8px;min-width:150px"> 
+                            <div style="font-weight:700">Banco de Dados</div>
+                            <div style="color:var(--muted)">Modelagem e consultas em SQL</div>
+                        </div>
+                        <div class="card" style="display:flex;flex-direction:column;gap:8px;min-width:150px"> 
+                            <div style="font-weight:700">Trabalho em Equipe</div>
+                            <div style="color:var(--muted)">Experiência em rotinas administrativas e logísticas</div>
+                        </div>
+                    </div>
+
+                    <h3 id="projects" style="margin-top:18px">Projetos</h3>
+                    <div class="projects">
+                        <div class="card">
+                            <div class="proj-title">Gerenciador de Tarefas</div>
+                            <div style="color:var(--muted);margin-top:8px">Aplicação web para controlar atividades com persistência local. Implementado em HTML, CSS e JavaScript.</div>
+                            <div class="tags">
+                                <div class="tag">HTML</div>
+                                <div class="tag">JavaScript</div>
+                                <div class="tag">CSS</div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="proj-title">API de Biblioteca (Java)</div>
+                            <div style="color:var(--muted);margin-top:8px">API REST simples em Java para cadastro de livros e empréstimos, com armazenamento em SQL.</div>
+                            <div class="tags">
+                                <div class="tag">Java</div>
+                                <div class="tag">SQL</div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="proj-title">Portfólio Pessoal (React)</div>
+                            <div style="color:var(--muted);margin-top:8px">Site responsivo que reúne projetos e informações profissionais, criado com React.</div>
+                            <div class="tags">
+                                <div class="tag">React</div>
+                                <div class="tag">JavaScript</div>
+                                <div class="tag">Responsive</div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="proj-title">ETL Acadêmico (Python)</div>
+                            <div style="color:var(--muted);margin-top:8px">Pipeline simples de transformação de dados para análise e geração de relatórios.</div>
+                            <div class="tags">
+                                <div class="tag">Python</div>
+                                <div class="tag">Pandas</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h3 style="margin-top:18px">Depoimentos</h3>
+                    <div class="testi">
+                        <div class="card">
+                            <div style="font-weight:700">Coordenador do curso</div>
+                            <div style="color:var(--muted);margin-top:6px">"Nikolas demonstrou comprometimento nas atividades práticas e facilidade para aprender novas tecnologias."</div>
+                        </div>
+                        <div class="card">
+                            <div style="font-weight:700">Supervisor — Dinatecnica</div>
+                            <div style="color:var(--muted);margin-top:6px">"Organizado e responsável no controle de documentos e atendimento."</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact" id="contact" style="margin-top:16px">
+                    <div class="card">
+                        <h3>Contato</h3>
+                        <p style="color:var(--muted);margin-top:6px">Interessado em conversar sobre estágio ou colaborar em um projeto? Me envie uma mensagem:</p>
+                        <form action="mailto:nikolas.moraisnm@gmail.com" method="post" enctype="text/plain">
+                            <input name="Nome" placeholder="Seu nome" />
+                            <input name="Assunto" placeholder="Assunto" />
+                            <textarea name="Mensagem" placeholder="Mensagem"></textarea>
+                            <div style="display:flex;gap:8px;margin-top:8px">
+                                <button type="submit" class="btn-primary">Enviar por e‑mail</button>
+                                <button type="button" onclick="window.location='mailto:nikolas.moraisnm@gmail.com'">Enviar</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+
+            <aside>
+                <div class="panel">
+                    <h3>Resumo rápido</h3>
+                    <p style="color:var(--muted);margin-top:6px">Estudante de ADS no UNASP, com vivência em rotinas administrativas e logísticas. Busco estágio para aplicar conhecimentos em desenvolvimento web e backend.</p>
+
+                    <h4 style="margin-top:14px">Habilidades</h4>
+                    <div class="skills" style="margin-top:8px">
+                        <div class="skillbar"><div style="width:70px;font-weight:700">Java</div><div class="bar"><i style="width:70%"></i></div></div>
+                        <div class="skillbar"><div style="width:70px;font-weight:700">JavaScript</div><div class="bar"><i style="width:75%"></i></div></div>
+                        <div class="skillbar"><div style="width:70px;font-weight:700">Python</div><div class="bar"><i style="width:60%"></i></div></div>
+                        <div class="skillbar"><div style="width:70px;font-weight:700">SQL</div><div class="bar"><i style="width:65%"></i></div></div>
+                    </div>
+
+                    <h4 style="margin-top:14px">Experiência</h4>
+                    <div style="color:var(--muted);margin-top:6px">
+                        Frascomar — Auxiliar Administrativo (2025)
+                        <br> Dinatecnica — Auxiliar de Escritório (2024)
+                        <br> GI Group (Adidas) — Auxiliar de Logística (2023)
+                    </div>
+
+                    <h4 style="margin-top:14px">Links</h4>
+                    <div style="margin-top:8px;display:flex;flex-direction:column;gap:8px">
+                        <a href="https://github.com/" style="color:var(--accent)">github.com/nikolasmorais</a>
+                        <a href="https://linkedin.com/" style="color:var(--accent)">linkedin.com/in/nikolasmorais</a>
+                        <a href="https://unasp.br/" style="color:var(--accent)">unasp.br</a>
+                    </div>
+                </div>
+
+                <div style="height:18px"></div>
+                <div class="panel">
+                    <h4>Disponibilidade</h4>
+                    <p style="color:var(--muted);margin-top:6px">Disponível para estágio — horário a combinar.</p>
+
+                    <h4 style="margin-top:12px">Idiomas</h4>
+                    <p style="color:var(--muted);margin-top:6px">Português (Nativo) • Inglês (Intermediário)</p>
+                </div>
+            </aside>
+        </main>
+
+        <footer>
+            <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap">
+                <div>© Nikolas Morais — Portfólio</div>
+                <div style="color:var(--muted)">Criado com ❤️ — personalize no VSCode</div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Tema
+        const btn = document.getElementById('toggleTheme');
+        btn.addEventListener('click', () => {
+            const cur = document.body.getAttribute('data-theme');
+            document.body.setAttribute('data-theme', cur === 'dark' ? 'light' : 'dark');
+        });
+
+        // Baixar currículo — instrução simples
+        document.getElementById('downloadResume').addEventListener('click', ()=>{
+            alert('Abra o currículo em PDF e baixe. Você pode gerar o PDF imprimindo o arquivo HTML do currículo.')
+        });
+
+        // Avatar iniciais
+        (function(){
+            const avatar = document.querySelector('.avatar');
+            const initials = 'NM';
+            avatar.textContent = initials;
+        })();
+    </script>
+</body>
+</html></div>
